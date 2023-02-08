@@ -1,38 +1,155 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background: #333;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#drum-machine {
+  width: 600px;
+  padding: 1rem;
+  background-color: #485364;
+  display: flex;
+  border-right: 1.25rem solid #667184;
+  border-left: 1.25rem solid #667184;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#drum-pads {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.drum-pad {
+  width: 90px;
+  height: 80px;
+  margin: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: .5rem;
+  justify-content: space-between;
+  border: 4px solid #c7ccd4;
+  background-color: #fbfbfb;
+  color: #E3309D;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.drum-pad-active {
+  background-color: #6485c1;
+  color: #222;
+}
+#controls {
+  padding: 5px 1rem;
+  width: 228px;
+}
+#display {
+  width: 196px;
+  height: 100px;
+  background-color: #44a1a2;
+  border: 2px solid #2d4757;
+  margin-bottom: 1rem;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+#display p{
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.volume-div {
+  height: 50px;
+  padding: .5rem;
+  margin-bottom: 2rem;
+}
+.volume-div p{
+  margin-bottom: .5rem;
+}
+.slider-div{
+  width: 100%;
+  padding: .75rem .5rem;
+  display: flex;
+  background-color: #353331;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background-color: #030303;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 20px;
+  background: #dcdcdc;
+  border-radius: 0%;
+}
+.toggles {
+  display: flex;
+  justify-content: space-around;
+}
+.toggle-div {
+  display: flex;
+  align-items: center;
+}
+.toggle-div p{
+  margin-right: .5rem;
+}
+.checkbox-div {
+  width: min-content;
+  padding: .5rem .75rem;
+  background-color: #353331;
+}
+.checkbox-input {
+  height: 0;
+  width: 0;
+  display: none;
+}
+.checkbox-label {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 4px;
+  height: 30px;
+  background: #030303;
+}
+.checkbox-button{
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 10px;
+  background: #dcdcdc;
+  transition: .3s;
+  left: -8px;
+  top: 20px;
+}
+input:checked + .checkbox-button {
+  transform: translateY(-20px);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 600px) {
+  #drum-machine {
+    width: fit-content;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  #drum-pads {
+    width: 260px;
+  }
+  .drum-pad {
+    width: 75px;
+    height: 70px;
+  }
+  #controls {
+    margin: auto;
+    margin-top: 1rem;
   }
 }
